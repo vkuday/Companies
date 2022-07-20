@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F311A632887D818003BB9DF /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F311A622887D818003BB9DF /* UIColor+theme.swift */; };
 		3FD4B54728813BD30056AA69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4B54628813BD30056AA69 /* AppDelegate.swift */; };
 		3FD4B54928813BD30056AA69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4B54828813BD30056AA69 /* SceneDelegate.swift */; };
 		3FD4B54B28813BD30056AA69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4B54A28813BD30056AA69 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F311A622887D818003BB9DF /* UIColor+theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
 		3FD4B54328813BD30056AA69 /* Companies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Companies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD4B54628813BD30056AA69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD4B54828813BD30056AA69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				3FD4B54F28813BD90056AA69 /* Assets.xcassets */,
 				3FD4B55128813BD90056AA69 /* LaunchScreen.storyboard */,
 				3FD4B55428813BD90056AA69 /* Info.plist */,
+				3F311A622887D818003BB9DF /* UIColor+theme.swift */,
 			);
 			path = Companies;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FD4B54B28813BD30056AA69 /* ViewController.swift in Sources */,
+				3F311A632887D818003BB9DF /* UIColor+theme.swift in Sources */,
 				3FD4B54728813BD30056AA69 /* AppDelegate.swift in Sources */,
 				3FD4B54928813BD30056AA69 /* SceneDelegate.swift in Sources */,
 			);
