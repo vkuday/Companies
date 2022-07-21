@@ -8,12 +8,17 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class CompaniesController: UITableViewController {
+    
+    let companies = [
+        Company(name: "Apple", founded: Date()),
+        Company(name: "Google", founded: Date()),
+        Company(name: "Facebook", founded: Date())
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setNavigationBar()
         navigationItem.title = "Companies"
         
         tableView.backgroundColor = .darkBlue
@@ -26,12 +31,15 @@ class ViewController: UITableViewController {
     }
     
     @objc private func handleAddCompany() {
-        
+        let createCompanyController = CreateCompanyController()
+        let navController = CustomNavigationController(rootViewController: createCompanyController)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = .lightBlue
+        view.backgroundColor = #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 0.701984835)
         return view
     }
     
@@ -40,34 +48,18 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return companies.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         cell.backgroundColor = .tealColor
-        cell.textLabel?.text = "THE COMPANY NAME"
-        cell.textLabel?.textColor = .white
+        let company = companies[indexPath.row]
+        cell.textLabel?.text = company.name
+        cell.textLabel?.textColor = .systemBlue
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        cell.detailTextLabel?.text = ""
         return cell
     }
 
 }
-
-extension UIViewController {
-
-    func setNavigationBar() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .systemRed
-        appearance.largeTitleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: 30), .foregroundColor: UIColor.white]
-        
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-    }
-}
-
