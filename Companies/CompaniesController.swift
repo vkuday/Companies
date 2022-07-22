@@ -10,12 +10,12 @@ import UIKit
 
 class CompaniesController: UITableViewController {
     
-    let companies = [
+    var companies = [
         Company(name: "Apple", founded: Date()),
         Company(name: "Google", founded: Date()),
         Company(name: "Facebook", founded: Date())
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -32,6 +32,7 @@ class CompaniesController: UITableViewController {
     
     @objc private func handleAddCompany() {
         let createCompanyController = CreateCompanyController()
+        createCompanyController.delegate = self
         let navController = CustomNavigationController(rootViewController: createCompanyController)
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true)
@@ -61,5 +62,13 @@ class CompaniesController: UITableViewController {
         cell.detailTextLabel?.text = ""
         return cell
     }
+}
 
+extension CompaniesController: CreateCompanyControllerDelegate {
+    func didAddCompany(company: Company) {
+        companies.append(company)
+        let newIndexPath = IndexPath(row: companies.count - 1, section: 0)
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
+    }
+    
 }
